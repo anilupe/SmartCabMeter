@@ -1,0 +1,175 @@
+{
+  "project_info": {
+    "project_number": "462147268664",
+    "firebase_url": "https://smartcab-7c6d4.firebaseio.com",
+    "project_id": "smartcab-7c6d4",
+    "storage_bucket": "smartcab-7c6d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462147268664:android:ece2e2d3993a073a0f76cd",
+        "android_client_info": {
+          "package_name": "com.example.pagos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462147268664-2c80sqchu934naum1ti1j8gkg256o1sk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pagos",
+            "certificate_hash": "9e6a2c83c9153900eb3a3dd15763c977cc4f7b40"
+          }
+        },
+        {
+          "client_id": "462147268664-nndndr6pslda5ntl270gfll360sevan0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0fuU3XqAoVTSDD1KOSR-oUwucUcJiT9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462147268664-si88s5q4tq3somtqk7bt21r9ba91ou3d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462147268664:android:8bad75c555a1018c",
+        "android_client_info": {
+          "package_name": "com.smartcabtechnologies.smartcab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462147268664-cst46cea62drhpmialqneg1m1597ui7o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smartcabtechnologies.smartcab",
+            "certificate_hash": "baf733c7e49d26d73e5c056115529a6af6aa986a"
+          }
+        },
+        {
+          "client_id": "462147268664-5okvebl9ak2oua2nte016bujfl7pdfmm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smartcabtechnologies.smartcab",
+            "certificate_hash": "7d6b00cc948fc3e746b9ceaa1b67ccde02cd0ae7"
+          }
+        },
+        {
+          "client_id": "462147268664-nndndr6pslda5ntl270gfll360sevan0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0fuU3XqAoVTSDD1KOSR-oUwucUcJiT9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462147268664-si88s5q4tq3somtqk7bt21r9ba91ou3d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462147268664:android:5ad6c6bd417dc2e6",
+        "android_client_info": {
+          "package_name": "smartdriver.smartcabtechnologies.smartcabconductor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462147268664-b5qli302ef261uasc6m8i01bjlcgboe0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "smartdriver.smartcabtechnologies.smartcabconductor",
+            "certificate_hash": "73d6966a0cd30b86116096fe448f2a0a8a5a2864"
+          }
+        },
+        {
+          "client_id": "462147268664-hh0gkuj0ajdv51r2m2c63q9soa7u2qdo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "smartdriver.smartcabtechnologies.smartcabconductor",
+            "certificate_hash": "db3843d6ec5a60a39a3a55b5d450bf7a265dca4f"
+          }
+        },
+        {
+          "client_id": "462147268664-nndndr6pslda5ntl270gfll360sevan0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0fuU3XqAoVTSDD1KOSR-oUwucUcJiT9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462147268664-si88s5q4tq3somtqk7bt21r9ba91ou3d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462147268664:android:d973c61639975f790f76cd",
+        "android_client_info": {
+          "package_name": "smartdriver.smartcabtechnologies.smartcabmeter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462147268664-ske2cu10488gk2kluug4haubvoje13a9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "smartdriver.smartcabtechnologies.smartcabmeter",
+            "certificate_hash": "9e6a2c83c9153900eb3a3dd15763c977cc4f7b40"
+          }
+        },
+        {
+          "client_id": "462147268664-nndndr6pslda5ntl270gfll360sevan0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0fuU3XqAoVTSDD1KOSR-oUwucUcJiT9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462147268664-si88s5q4tq3somtqk7bt21r9ba91ou3d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

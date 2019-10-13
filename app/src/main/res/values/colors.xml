@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0a091b</color>
+    <color name="plomo">#9E9E9E</color>
+    <color name="plomo2">#E9E9E9  </color>
+
+
+    <color name="colorPrimaryDark">#070716</color>
+    <color name="colorAccent">#ffffff</color>
+    <color name="colonegro">#070716</color>
+    <color name="white">#ffffff</color>
+    <color name="rojo">#FF0000</color>
+    <color name="Rojizo">#FF5000</color>
+
+    <color name="verde">#008000</color>
+
+    <!-- colors for button style -->
+
+    <color name="gradient_start_color">#4c84ff</color>
+    <color name="gradient_end_color">#18a3fe</color>
+    <color name="color_botones">#E5000D</color>
+    <color name="color_botones_app">#DAE632</color>
+    <color name="color_azul_app">#2F91D0</color>
+
+
+
+    <!-- colors for tab and screent text -->
+
+    <color name="tab_indicator_gray">#c0c0c0</color>
+    <color name="intro_title_color">#000000</color>
+    <color name="intro_description_color">#656565</color>
+
+
+    <color name="baseReleaseColor">#212121</color>
+    <color name="basePressColor">#FAFAFA</color>
+    <color name="ballReleaseColor">#9E9E9E</color>
+
+</resources>
