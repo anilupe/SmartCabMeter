@@ -28,6 +28,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -79,6 +80,7 @@ public class Inicio extends AppCompatActivity {
 
 TextView total, tbase, drecorrida, dcarrera, vtotal;
 TextView origen, destino;
+Button cerrar;
         TextView fechaCompleta;
 
         @Override
@@ -105,6 +107,14 @@ TextView origen, destino;
                vtotal=findViewById(R.id.costot);
                origen=findViewById(R.id.txtFrom);
                destino=findViewById(R.id.txtTo);
+               cerrar=findViewById(R.id.cerrar_sesion);
+               cerrar.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View view) {
+                       signOut();
+                   }
+               });
+
 
                 String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
                 Log.d("Identificacion", uid);
@@ -118,23 +128,21 @@ TextView origen, destino;
                                         if (chat.getEstado().equals("Cobrando")){
                                                 total.setText(chat.getValor_carrera());
                                                 tbase.setText(String.format("$ %.2f", Common.base_fare));
-                                                drecorrida.setText(chat.getDistancia_recorrida());
-                                                dcarrera.setText(chat.getDuracion_viaje()+"min");
+                                                drecorrida.setText(chat.getDistancia_recorrida()+ " km");
+                                                dcarrera.setText(chat.getDuracion_viaje());
                                                 vtotal.setText(chat.getValor_carrera());
                                                 origen.setText(chat.getOrigen());
                                                 destino.setText(chat.getDestino());
                                         }
-
                                         else {
-                                                total.setText("00.00");
+                                                total.setText("$ 0.00");
                                                 tbase.setText(String.format("$ %.2f", Common.base_fare));
                                                 drecorrida.setText("0 km");
-                                                dcarrera.setText("0 min");
-                                                vtotal.setText("00.00");
+                                                dcarrera.setText("0 ");
+                                                vtotal.setText("$0.0");
                                                 origen.setText("");
                                                 destino.setText("");
                                         }
-
                                 }
                         }
 
@@ -148,4 +156,29 @@ TextView origen, destino;
 
 
         }
+
+    private void signOut() {
+        android.app.AlertDialog.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            builder=new android.app.AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
+        else
+            builder=new android.app.AlertDialog.Builder(this);
+
+        builder.setMessage("Do you want to log out?")
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        FirebaseAuth.getInstance().signOut();
+                        Intent intent=new Intent(Inicio.this, Taxi.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }).setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.show();
+    }
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SmartCabMeter</string>
+    <string name="btn_continuar_login">Next</string>
+    <string name="btn_iniciar">Log In</string>
+    <string name="check">Remember me</string>
+    <string name="contra_olvidada">Forgot your password?</string>
+    <string name="contrasena">Password</string>
+    <string name="correo_cliente">Email</string>
+    <string name="destino">Drop off</string>
+    <string name="distancia">Distance</string>
+    <string name="duracion">Travel time</string>
+    <string name="ganancia_viaje">Travel Cost</string>
+    <string name="origen">Pick Up</string>
+    <string name="valor_estimado">Total cost</string>
+    <string name="titulo_viaje_detalle">"DETAILS OF THE TRIP "</string>
+    <string name="titulo_tarifa_basica">Base Rate</string>
+    <string name="titulo_login">Login with e-mail</string>
+    <string name="titulo_inicio">LOG IN</string>
+</resources>

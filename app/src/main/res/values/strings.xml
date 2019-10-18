@@ -1,35 +1,23 @@
 <resources>
     <string name="app_name">SmartCabMeter</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="menu_home">Cuenta</string>
-    <string name="menu_gallery">Historial de viajes</string>
-    <string name="menu_slideshow">Mensajes</string>
-    <string name="menu_tools">Llamadas</string>
-    <string name="menu_share">Ayuda</string>
-    <string name="menu_send">Cerrar Sesion</string>
+    <string name="action_settings" translatable="false">Settings</string>
 
     <string name="titulo_inicio">Iniciar Sesion</string>
-    <string name="titulo_conductor">Conductor</string>
+    <string name="titulo_conductor" translatable="false">Softmeter SmartCab</string>
     <string name="titulo_login">Iniciar sesion con correo</string>
     <string name="correo_cliente">Correo electronico</string>
     <string name="btn_continuar_login">Siguiente</string>
     <string name="contrasena">Contrasena</string>
-    <string name="check">Olvido su contrasena</string>
+    <string name="check">Recordar credenciales</string>
     <string name="contra_olvidada">Contrasena olvidada</string>
     <string name="btn_iniciar">Iniciar sesion</string>
-    <string name="title_activity_inicio">Map</string>
+    <string name="title_activity_inicio" translatable="false">Map</string>
 
     <string name="ganancia_viaje">Costo del viaje </string>
     <string name="titulo_tarifa_basica">Tarifa base</string>
     <string name="duracion">Duracion del viaje </string>
     <string name="distancia">Distancia recorrida </string>
-    <string name="valor_estimado">Valor estimado del viaje </string>
+    <string name="valor_estimado">Costo total </string>
     <string name="titulo_viaje_detalle">DETALLE DEL VIAJE </string>
     <string name="destino">Destino</string>
     <string name="origen">Origen</string>

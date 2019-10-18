@@ -78,8 +78,6 @@ public class Taxi extends FragmentActivity implements View.OnClickListener  {
         LinearLayoutManager lm=new LinearLayoutManager(this);
         lm.setStackFromEnd(true);
 
-
-
         //referenciamos los views
         TextEmail = findViewById(R.id.edtEmail);
         TextPass = findViewById(R.id.edtPass);
