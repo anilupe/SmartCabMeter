@@ -13,9 +13,7 @@ import android.graphics.drawable.ColorDrawable;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -24,67 +22,71 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.iid.FirebaseInstanceId;
 import com.rengwuxian.materialedittext.MaterialEditText;
-
 import java.util.HashMap;
-
 import dmax.dialog.SpotsDialog;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import smartdriver.smartcabtechnologies.smartcabmeter.AdapterBackend.Driver;
+import smartdriver.smartcabtechnologies.smartcabmeter.AdapterBackend.Login;
 import smartdriver.smartcabtechnologies.smartcabmeter.Common.Common;
 import smartdriver.smartcabtechnologies.smartcabmeter.Common.User;
+import smartdriver.smartcabtechnologies.smartcabmeter.Common.UserClient;
 
 public class Taxi extends FragmentActivity implements View.OnClickListener  {
-    private static final String TAG=" ";
-    private static final int REQUEST_CODE=1000;
     private EditText TextEmail;
-
-
     private TextView btn1;
     private EditText TextPass;
     private Button btnIniciar;
     private CheckBox estado;
-    private TextView sesionTelefono;
+    DatabaseReference reference;
     DatabaseReference mDatabase;
     RelativeLayout activity_login;
     private ProgressDialog progressDialog;
-    public static final String MY_PREFS_NAME = "user_pass_pref";
-    //firebase
-    FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth;
     FirebaseAuth.AuthStateListener listener;
     TextView contra_olvidada;
+    String nombreUsuario;
+    String deleted;
+    Retrofit.Builder builder=new Retrofit.Builder()
+            .baseUrl("https://smartcabback.azurewebsites.net/")
+            .addConverterFactory(GsonConverterFactory.create());
+    Retrofit retrofit =builder.build();
+    UserClient userClient =retrofit.create(UserClient.class);
+
     protected void onCreate(Bundle savedInstanceState) {
         firebaseAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_taxi);
         LinearLayoutManager lm=new LinearLayoutManager(this);
         lm.setStackFromEnd(true);
-
-        //referenciamos los views
+        lm.scrollToPositionWithOffset(1,10);
+        lm.isSmoothScrollbarEnabled();
         TextEmail = findViewById(R.id.edtEmail);
         TextPass = findViewById(R.id.edtPass);
         btnIniciar = findViewById(R.id.btniniciar);
         estado= findViewById(R.id.estado);
         activity_login= findViewById(R.id.rootLayout);
         progressDialog = new ProgressDialog(this);
+        contra_olvidada= findViewById(R.id.txt_forgot_password);
         contra_olvidada= findViewById(R.id.txt_forgot_password);
         contra_olvidada.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -93,7 +95,6 @@ public class Taxi extends FragmentActivity implements View.OnClickListener  {
                 return false;
             }
         });
-        //btnIniciar.setOnClickListener(this);
         listener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -103,20 +104,17 @@ public class Taxi extends FragmentActivity implements View.OnClickListener  {
                     //Toast.makeText(getApplicationContext(),"Inicie sesión",Toast.LENGTH_LONG).show();
                 }
                 else{
-                    abrirMiCuenta();
+                    // abrirMiCuenta();
                     // Toast.makeText(getApplicationContext(),"Sesión Activa",Toast.LENGTH_LONG).show();
                 }
             }
         };
         btn1=findViewById(R.id.b_1);
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
         btnIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 iniciarsesion();
-
             }
         });
         CargarPreferencias();
@@ -215,8 +213,6 @@ public class Taxi extends FragmentActivity implements View.OnClickListener  {
         //verificamos que las cajas de texto no esten vacias
         if(!email.isEmpty()&& !pass.isEmpty()){
             closeTecladoMovil();
-
-
             progressDialog.setMessage("Performing online consultation ...");
             firebaseAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
@@ -235,23 +231,30 @@ public class Taxi extends FragmentActivity implements View.OnClickListener  {
 
                                     }
                                 });
-
                         FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
                         String userid=firebaseUser.getUid();
-                        HashMap<String, Object> hashMap=new HashMap<>();
-                        hashMap.put("id", userid);
-                        hashMap.put("email",TextEmail.getText().toString());
-                        hashMap.put("password", TextPass.getText().toString());
-                        hashMap.put("calificacion", "5");
-                        DatabaseReference conductores= FirebaseDatabase.getInstance().getReference("Usuarios").child("Conductores");
-                        conductores.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                .updateChildren(hashMap);
-                        Log.d("PILAS", String.valueOf(mDatabase));
-                        // Toast.makeText(getApplicationContext(),"Inicio de sesión correcto",Toast.LENGTH_LONG).show();
+                        //traer el nombre de usuairio para comparar
+                        mDatabase=FirebaseDatabase.getInstance().getReference("Usuarios").child("Conductores").child(userid);
+                        mDatabase.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                User conductor=dataSnapshot.getValue(User.class);
+                                deleted=conductor.getDeleted();
 
+
+                                if (deleted.equals("N")) {
+                                    nombreUsuario = conductor.getUsername();
+                                    generarTokenBackend(nombreUsuario);
+                                    GuardarPreferencias();
+                                }
+                            }
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                            }
+                        });
                     }
                     else{
-                        Toast.makeText(getApplicationContext(),"Verify your credentials",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),getString(R.string.Credenciales),Toast.LENGTH_LONG).show();
                     }
                 }
             });
@@ -259,6 +262,34 @@ public class Taxi extends FragmentActivity implements View.OnClickListener  {
         GuardarPreferencias();
         GuardarPreferenciasMail();
     }
+
+    String token;
+    private void generarTokenBackend(String nombreUsuario) {
+        Login login =new Login(nombreUsuario, TextPass.getText().toString());
+        Call<Driver> call=userClient.login(login);
+        call.enqueue(new Callback<Driver>() {
+            @Override
+            public void onResponse(Call<Driver> call, Response<Driver> response) {
+                if (response.isSuccessful()){
+                    token=response.body().getToken();
+                    }
+
+                    if (token!=null){
+
+                        abrirMiCuenta();
+                    }
+                    else{
+                        Toast.makeText(Taxi.this,"error ",Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            @Override
+            public void onFailure(Call<Driver> call, Throwable t) {
+                Toast.makeText(Taxi.this, "error ", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
     private void closeTecladoMovil() {
         View view=this.getCurrentFocus();
@@ -292,7 +323,6 @@ public class Taxi extends FragmentActivity implements View.OnClickListener  {
         }
     }
     private void abrirMiCuenta(){
-
         startActivity(new Intent(getApplicationContext(),Inicio.class));
         overridePendingTransition(R.anim.slide_rigth_to_left_enter, R.anim.slide_rigth_to_left_exit);
         finish();

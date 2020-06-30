@@ -75,7 +75,7 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-messaging:19.0.1'
 
-    implementation 'com.github.glomadrian:MaterialAnimatedSwitch:1.1@aar'
+  //  implementation 'com.github.glomadrian:MaterialAnimatedSwitch:1.1@aar'
 
 
     implementation 'com.google.android.gms:play-services-location:17.0.0'

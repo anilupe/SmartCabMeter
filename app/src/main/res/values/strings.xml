@@ -21,5 +21,6 @@
     <string name="titulo_viaje_detalle">DETALLE DEL VIAJE </string>
     <string name="destino">Destino</string>
     <string name="origen">Origen</string>
+    <string name="Credenciales">Verifique sus credenciales</string>
 
 </resources>

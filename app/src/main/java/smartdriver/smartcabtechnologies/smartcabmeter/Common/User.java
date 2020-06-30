@@ -6,28 +6,23 @@ public class User {
     String nombre;
     String profileImageUrl;
     private String calificacion;
+    String username;
+    String tipo_vehiculo;
+    String deleted;
 
     public User() {
     }
 
-    public User(String id, String email, String nombre, String profileImageUrl) {
+    public User(String id, String email, String nombre, String profileImageUrl, String calificacion, String username, String tipo_vehiculo, String deleted) {
         this.id = id;
         this.email = email;
         this.nombre = nombre;
         this.profileImageUrl = profileImageUrl;
-    }
-
-
-
-
-    public String getCalificacion() {
-        return calificacion;
-    }
-
-    public void setCalificacion(String calificacion) {
         this.calificacion = calificacion;
+        this.username = username;
+        this.tipo_vehiculo = tipo_vehiculo;
+        this.deleted = deleted;
     }
-
 
     public String getId() {
         return id;
@@ -59,5 +54,37 @@ public class User {
 
     public void setProfileImageUrl(String profileImageUrl) {
         this.profileImageUrl = profileImageUrl;
+    }
+
+    public String getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(String calificacion) {
+        this.calificacion = calificacion;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getTipo_vehiculo() {
+        return tipo_vehiculo;
+    }
+
+    public void setTipo_vehiculo(String tipo_vehiculo) {
+        this.tipo_vehiculo = tipo_vehiculo;
+    }
+
+    public String getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(String deleted) {
+        this.deleted = deleted;
     }
 }

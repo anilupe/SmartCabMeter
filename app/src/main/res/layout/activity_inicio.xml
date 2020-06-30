@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@color/white"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:weightSum="10"
     tools:context=".Inicio" >
@@ -34,160 +35,199 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/icono_azul"
-            />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/banner"/>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5">
 
         <!--TOP HEADER -->
         <LinearLayout
             android:orientation="vertical"
-            android:layout_gravity="center"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
             <TextView
                 android:id="@+id/fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quando"
                 android:text="LUNES, 22/11"
-                android:textSize="24dp"
-                android:textAlignment="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="$0.0"
+                android:fontFamily="@font/quando"
+                android:text="$30.0"
                 android:textColor="#27aa0b"
-                android:textSize="56dp"
+                android:textSize="25dp"
                 android:textStyle="bold" />
         </LinearLayout>
-
+        <!--MIDDLE HEADER -->
         <LinearLayout
             android:orientation="vertical"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
-                android:text="@string/ganancia_viaje"
-                android:textSize="24dp"
-                android:textStyle="bold"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="35dp"
+                android:fontFamily="@font/quando"
+                android:text="@string/ganancia_viaje"
+                android:textSize="16sp"
+                android:textColor="@color/colonegro"
+                android:textStyle="bold" />
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_weight="3"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="35dp">
+
                 <TextView
-                    android:text="@string/titulo_tarifa_basica"
-                    android:textSize="19sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_width="1dp"
-                    android:layout_height="wrap_content" />
+                    android:fontFamily="@font/quando"
+                    android:text="@string/titulo_tarifa_basica"
+                    android:textSize="16sp" />
+
                 <TextView
-                    android:id="@+id/tarifabase"
-                    android:text="00.00"
-                    android:textSize="19dp"
+                    android:id="@+id/tarifa_base"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quando"
+                    android:text="2.00"
+                    android:textSize="16dp" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="35dp">
+
                 <TextView
-                    android:text="@string/duracion"
-                    android:textSize="19sp"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/quando"
+                    android:text="@string/duracion"
+                    android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/duracionc"
-                    android:text="0 "
-                    android:textSize="19sp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quando"
+                    android:text="3 min"
+                    android:textSize="16sp" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_weight="2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="35dp">
+
                 <TextView
-                    android:text="@string/distancia"
-                    android:textSize="19sp"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/quando"
+                    android:text="@string/distancia"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/distanciar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00 km"
-                    android:textSize="19sp" />
+                    android:fontFamily="@font/quando"
+                    android:text="10 km"
+                    android:textSize="16dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_marginTop="10dp">
+
                 <TextView
-                    android:text="@string/valor_estimado"
-                    android:textSize="20dp"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"/>
+                    android:layout_weight="1"
+                    android:fontFamily="@font/quando"
+                    android:text="@string/valor_estimado"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/costot"
-                    android:text="0.00 "
-                    android:textSize="24dp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quando"
+                    android:text="10.00"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
-                    android:text="@string/origen"
-                    android:textSize="24dp"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quando"
+                    android:text="@string/origen"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/txtFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:fontFamily="@font/quando"
                     android:text="Origen"
-                    android:textSize="19dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:textSize="16sp" />
+
                 <TextView
-                    android:text="@string/destino"
-                    android:textSize="24dp"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quando"
+                    android:text="@string/destino"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/txtTo"
-                    android:text="Destino"
-                    android:textSize="19dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="35dp"
+                    android:fontFamily="@font/quando"
+                    android:text="Destino"
+                    android:textSize="16dp" />
             </LinearLayout>
         </LinearLayout>
+    </LinearLayout>
 
     </LinearLayout>
 

@@ -17,4 +17,5 @@
     <string name="titulo_tarifa_basica">Base Rate</string>
     <string name="titulo_login">Login with e-mail</string>
     <string name="titulo_inicio">LOG IN</string>
+    <string name="Credenciales">Verify your credentials</string>
 </resources>

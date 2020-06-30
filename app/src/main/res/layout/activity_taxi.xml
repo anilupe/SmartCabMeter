@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="20dp"
         android:orientation="vertical"
         android:layout_marginLeft="20dp">
@@ -27,6 +27,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/quando"
             android:text="@string/titulo_inicio"
             android:textAlignment="center"
             android:textColor="@color/cardview_dark_background"
@@ -35,7 +36,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/quando"
             android:text="@string/titulo_conductor"
+            android:layout_marginTop="10dp"
             android:textAlignment="center"
             android:textColor="@color/cardview_dark_background"
             android:textSize="18dp" />
@@ -44,6 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="34dp"
+            android:fontFamily="@font/quando"
             android:text="@string/titulo_login"
             android:textColor="@color/cardview_dark_background"
             android:textSize="20dp" />
@@ -62,47 +66,49 @@
             android:id="@+id/edtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:text=""
-            android:hint="@string/correo_cliente"
-            android:cursorVisible="true"
-            android:textColor="@color/gradient_start_color"
-            android:textSize="15dp"
             android:layout_marginTop="10dp"
+            android:cursorVisible="true"
+            android:fontFamily="@font/quando"
+            android:hint="@string/correo_cliente"
+            android:inputType="text"
             android:shadowColor="@color/colorPrimary"
+            android:text=""
+            android:textColor="@color/gradient_start_color"
             android:textColorHighlight="@color/colorPrimary"
+            android:textSize="15dp"
             app:met_floatingLabel="highlight"
             app:met_primaryColor="@color/gradient_start_color"
-            app:met_singleLineEllipsis="true"
 
-            />
+            app:met_singleLineEllipsis="true" />
+
         <TextView
             android:id="@+id/b_1"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
-            android:textColor="@color/gradient_start_color"
+            android:layout_gravity="center"
+            android:fontFamily="@font/quando"
             android:text="@string/btn_continuar_login"
-            android:textStyle="bold"
-            />
+            android:textColor="@color/gradient_start_color"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/edtPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:text=""
-            android:hint="@string/contrasena"
             android:cursorVisible="true"
-            android:textColor="@color/gradient_start_color"
-            android:textSize="15dp"
+            android:fontFamily="@font/quando"
+            android:hint="@string/contrasena"
+            android:inputType="textPassword"
             android:shadowColor="@color/colorPrimary"
+            android:text=""
+            android:textColor="@color/gradient_start_color"
             android:textColorHighlight="@color/colorPrimary"
+            android:textSize="15dp"
+            android:visibility="gone"
             app:met_floatingLabel="highlight"
             app:met_primaryColor="@color/gradient_start_color"
-            app:met_singleLineEllipsis="true"
-            android:visibility="gone"/>
+            app:met_singleLineEllipsis="true" />
 
         <CheckBox
             android:id="@+id/estado"
@@ -115,15 +121,17 @@
             android:text="@string/check"
             android:visibility="gone"
             />
+
         <TextView
             android:id="@+id/txt_forgot_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/quando"
             android:text="@string/contra_olvidada"
             android:textColor="@color/gradient_end_color"
-            android:visibility="gone"
-            android:textSize="14dp" />
+            android:textSize="14dp"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btniniciar"
@@ -131,11 +139,12 @@
             android:layout_height="50dp"
             android:layout_gravity="right"
             android:background="@color/gradient_start_color"
+            android:fontFamily="@font/quando"
             android:text="@string/btn_iniciar"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:visibility="gone"
-            android:textSize="14dp" />
+            android:textSize="14dp"
+            android:visibility="gone" />
     </LinearLayout>
 </ScrollView>
 </RelativeLayout>

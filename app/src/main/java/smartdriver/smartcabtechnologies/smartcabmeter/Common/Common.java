@@ -14,13 +14,9 @@ public class Common {
 
     public static Location mLastLocation=null;
 
-   public static double base_fare=8.74;
-   private static double time_rate=1.43;
-   private static double distance_rate=6.0;
-
-   public static double getPrice(double km, double min){
-       return (base_fare+(time_rate*min)+(distance_rate*km));
-   }
+   public static double base_fare;
+   private static double time_rate;
+   private static double distance_rate;
 
 
     public static final String baseURL="https://maps.googleapis.com";
